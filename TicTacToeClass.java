@@ -18,6 +18,33 @@ public class TicTacToeClass{
 
 	public boolean isWinner( char p )
 	{
+        //Checks for filled spaces in rows, X or O
+        if(board[0][0] == p && board[1][0] == p && board[2][0] == p){
+            return true;
+        }
+        if(board[0][1] == p && board[1][1] == p && board[2][1] == p){
+            return true;
+        }
+        if(board[0][2] == p && board[1][2] == p && board[2][2] == p){
+            return true;
+        }
+        //Checks for filled spaces in cols, X or O
+        if(board[0][0] == p && board[0][1] == p && board[0][2] == p){
+            return true;
+        }
+        if(board[1][0] == p && board[1][1] == p && board[1][2] == p){
+            return true;
+        }
+        if(board[2][0] == p && board[2][1] == p && board[2][2] == p){
+            return true;
+        }
+        //Checks for filled spaces diagonally, X or O
+        if(board[0][0] == p && board[1][1] == p && board[2][2] == p){
+            return true;
+        }
+        if(board[2][2] == p && board[1][1] == p && board[0][2] == p){
+            return true;
+        }
 		return false;
 	}
 
@@ -33,11 +60,11 @@ public class TicTacToeClass{
         for(int row =0; row < 3; row++){
             for(int col =0; col < 3; ++col) {
                if( board[row][col] == 0 ){
-                   return false;
+                   return true;
                }
             }
         }
-		return true;	
+		return false;	
 	}
 
 	public boolean isValid( int r, int c )
