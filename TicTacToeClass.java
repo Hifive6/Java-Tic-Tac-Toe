@@ -21,14 +21,23 @@ public class TicTacToeClass{
 		return false;
 	}
 
-	public boolean isFull()
+    public boolean isFull()//return true if nine turns have been
+                            // played and false otherwise
 	{
 		return false;
 	}
 
-	public boolean isCat()
+    public boolean isCat() // checks if all nine spaces are filled
+                            // and neither X or O hava won
 	{
-		return false;	
+        for(int row =0; row < 3; row++){
+            for(int col =0; col < 3; ++col) {
+               if( board[row][col] == 0 ){
+                   return false;
+               }
+            }
+        }
+		return true;	
 	}
 
 	public boolean isValid( int r, int c )
