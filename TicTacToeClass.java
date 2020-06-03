@@ -51,6 +51,9 @@ public class TicTacToeClass{
     public boolean isFull()//return true if nine turns have been
                             // played and false otherwise
 	{
+        if(turns == 9){
+            return true;
+        }
 		return false;
 	}
 
@@ -59,12 +62,12 @@ public class TicTacToeClass{
 	{
         for(int row =0; row < 3; row++){
             for(int col =0; col < 3; ++col) {
-               if( board[row][col] == 0 ){
-                   return true;
+               if( board[row][col] == ' ' ){
+                   return false;
                }
             }
         }
-		return false;	
+		return true;	
 	}
 
 	public boolean isValid( int r, int c )
