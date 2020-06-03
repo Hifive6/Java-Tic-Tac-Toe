@@ -42,7 +42,7 @@ public class TicTacToeClass{
         if(board[0][0] == p && board[1][1] == p && board[2][2] == p){
             return true;
         }
-        if(board[2][2] == p && board[1][1] == p && board[0][2] == p){
+        if(board[2][0] == p && board[1][1] == p && board[0][2] == p){
             return true;
         }
 		return false;
@@ -60,14 +60,11 @@ public class TicTacToeClass{
     public boolean isCat() // checks if all nine spaces are filled
                             // and neither X or O hava won
 	{
-        for(int row =0; row < 3; row++){
-            for(int col =0; col < 3; ++col) {
-               if( board[row][col] == ' ' ){
-                   return false;
-               }
-            }
+       
+        if(turns == 9 && !isWinner('X') && !isWinner('O')){
+            return true;
         }
-		return true;	
+		return false;	
 	}
 
 	public boolean isValid( int r, int c )
@@ -104,6 +101,8 @@ public class TicTacToeClass{
 	// Modifiers
 	public void playMove( char p, int r, int c )
 	{
+        board[r][c] = p;
+        turns++;
 	}
 
 }
